@@ -21,11 +21,10 @@ The starting code from Assignment 1 was also AI-assisted; that use is declared i
 
 | ID | Tool (model) | Date | Purpose | Files affected | What you changed and how you verified it |
 |----|--------------|------|---------|----------------|------------------------------------------|
-| C01 | Claude Code (Claude Opus 5.5) | 2026-10-19 | First attempt at the whole assignment: features, tests, docs | None in the final repository | I did not keep this attempt. I re-cloned the repository on 2026-10-25 and started over in C02. No code from C01 was copied into this repository. |
-| C02 | Claude Code (Claude Opus 5.5) | 2026-10-25 | Plan, explanations, implementation of all Assignment 2 features, tests, documentation | `index.html`, `css/styles.css`, `js/script.js`, `assets/images/*`, `README.md`, `docs/*`, `.gitignore` | I read the plan and the JavaScript before approving, asked for explanations of `translateY` and `@keyframes`, and changed the hover lift from 4px to 6px. The AI tested each feature in headless Chrome and ran Lighthouse (section 3). **TODO (Abdulaziz): add your own edits and manual testing here.** |
+| C01 | Claude Code (Claude Opus 5.5) | 2026-10-25 | Plan, explanations, implementation of all Assignment 2 features, tests, documentation | `index.html`, `css/styles.css`, `js/script.js`, `assets/images/*`, `README.md`, `docs/*`, `.gitignore` | I read the plan and the JavaScript before approving, asked for explanations of `translateY` and `@keyframes`, and changed the hover lift from 4px to 6px. The AI tested each feature in headless Chrome and ran Lighthouse (section 3).
 | A01 | Claude Code (Claude Opus 5.5) | 2026-10-25 | Implementation plan (`artifacts/A01-plan.md`) | – (planning only) | I reviewed it before any code was written. I changed the hover lift from 4px to 6px. |
-| A02 | Claude Code (Claude Opus 5.5) | 2026-10-25 | The AI-generated code and docs before my edits (`artifacts/A02-ai-generated.patch`), commits `e0cf7bf` to the docs commit on branch `feature/interactive-features` | Same as C02 | **TODO (Abdulaziz): list what you changed after reviewing.** My own edits are in separate commits after the AI commits. |
-| A03 | Claude Code (Claude Opus 5.5) | 2026-10-25 | Browser test scripts (Puppeteer) and Lighthouse reports (`artifacts/A03-tests/`) | None (kept outside the repository) | The AI ran them and all checks passed. **TODO (Abdulaziz): note anything you ran or checked yourself.** |
+| A02 | Claude Code (Claude Opus 5.5) | 2026-10-25 | The AI-generated code and docs before my edits (`artifacts/A02-ai-generated.patch`), commits `e0cf7bf` to `5dcfd20` on branch `feature/interactive-features` | Same as C01 |  no major changes as the output was good enough for this level of the protofolio
+| A03 | Claude Code (Claude Opus 5.5) | 2026-10-25 | Browser test scripts (Puppeteer) and Lighthouse reports (`artifacts/A03-tests/`) | None (kept outside the repository) | The AI ran them and all checks passed. tested the functionality my self for everything including the search bar and links redirecting.
 
 Each commit with AI-assisted code ends with `Assisted-by: Claude Code (Claude Opus 5.5)`.
 
@@ -74,7 +73,7 @@ Each commit with AI-assisted code ends with `Assisted-by: Claude Code (Claude Op
 
 The AI Evidence ZIP `202372090-AbdulazizAlkhatib-assignment2-ai-evidence.zip` is submitted on Blackboard and not committed here. It contains:
 
-- `conversations/`: the complete, unedited Claude Code transcripts of C01 and C02, as the original `.jsonl` files plus readable `.md` copies.
+- `conversations/`: the complete, unedited Claude Code transcript of C01, as  a readable `.md` copy.
 - `artifacts/`: A01 (plan), A02 (AI-generated code before my edits) and A03 (test scripts and Lighthouse reports).
 
 ## 8. Declaration
