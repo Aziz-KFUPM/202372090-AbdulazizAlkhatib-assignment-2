@@ -1,3 +1,7 @@
 .DS_Store
 node_modules/
 .vscode/
+
+# AI evidence (submitted on Blackboard, never committed)
+ai-evidence/
+*-ai-evidence.zip
