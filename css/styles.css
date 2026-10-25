@@ -7,6 +7,7 @@
   --on-accent: #ffffff;
   --card: #f1f5f9;
   --border: #cbd5e1;
+  --error: #b91c1c;
 }
 
 /* Dark theme overrides */
@@ -18,6 +19,7 @@
   --on-accent: #0f172a;
   --card: #1e293b;
   --border: #334155;
+  --error: #f87171;
 }
 
 * {
@@ -207,6 +209,59 @@ main {
   }
 }
 
+/* GitHub repositories */
+.repos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.repo {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.repo a {
+  font-weight: bold;
+  overflow-wrap: anywhere;
+}
+
+.repo p {
+  margin: 0.25rem 0;
+}
+
+.repo small {
+  color: var(--muted);
+}
+
+#repos-status.error {
+  color: var(--error);
+}
+
+/* Spinning circle shown before "Loading..." */
+#repos-status.loading::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5rem;
+  vertical-align: -0.15em;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Contact form */
 form {
   display: flex;
@@ -244,7 +299,8 @@ form button {
 
 /* Tablet and up */
 @media (min-width: 600px) {
-  .projects {
+  .projects,
+  .repos {
     grid-template-columns: repeat(2, 1fr);
   }
 }

@@ -14,6 +14,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#repos">GitHub</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button id="theme-toggle" type="button" aria-label="Toggle dark/light theme">Dark</button>
@@ -82,6 +83,14 @@
         </article>
       </div>
       <p id="projects-empty" class="empty" hidden>No projects found. Try another word or click "All".</p>
+    </section>
+
+    <section id="repos" class="section">
+      <h2>Latest on GitHub</h2>
+      <p>My most recently updated public repositories, loaded live from the GitHub API.</p>
+      <p id="repos-status" role="status"></p>
+      <button id="repos-retry" type="button" hidden>Try again</button>
+      <ul id="repos-list" class="repos"></ul>
     </section>
 
     <section id="contact" class="section">
