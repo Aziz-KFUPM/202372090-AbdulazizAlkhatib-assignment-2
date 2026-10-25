@@ -17,11 +17,30 @@ function applyTheme(theme) {
   toggle.textContent = theme === "dark" ? "Light" : "Dark";
 }
 
-applyTheme(localStorage.getItem("theme") || "light");
+// localStorage can throw when the browser blocks storage, so the page keeps working without it
+function getSavedTheme() {
+  try {
+    return localStorage.getItem("theme");
+  } catch (error) {
+    return null;
+  }
+}
+
+function saveTheme(theme) {
+  try {
+    localStorage.setItem("theme", theme);
+  } catch (error) {
+    // Storage is blocked: the theme still changes, it just isn't remembered
+  }
+}
+
+// No saved choice yet? Follow the operating system setting.
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+applyTheme(getSavedTheme() || (prefersDark ? "dark" : "light"));
 
 toggle.addEventListener("click", function () {
   const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-  localStorage.setItem("theme", next);
+  saveTheme(next);
   applyTheme(next);
 });
 
@@ -189,3 +208,20 @@ form.addEventListener("input", function (event) {
     showError(event.target, getError(event.target));
   }
 });
+
+// Fade sections in as they scroll into view (older browsers just show them)
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: "0px 0px -50px 0px" });
+
+  document.querySelectorAll(".section").forEach(function (section) {
+    section.classList.add("reveal");
+    observer.observe(section);
+  });
+}
