@@ -52,32 +52,18 @@ Each commit with AI-assisted code ends with `Assisted-by: Claude Code (Claude Op
 
 ## 4. What I changed and why
 
-**TODO (Abdulaziz):** describe the edits you made to the AI output, in your own words. For example:
-
-- what you changed after reviewing the code
-- the real project content you added in place of the placeholders
-- styling you adjusted
-- anything you rewrote to understand it better
-
-Changes made so far:
-
 - Hover lift changed from `translateY(-4px)` to `translateY(-6px)`, because it looked better.
-
+- The rest of the functionality was reviewed but no changes required, it serves its purpose with minimal vanilla javascript.
 ## 5. Benefits and challenges
 
-**TODO (Abdulaziz):** your own experience. Some points to consider:
-
-- How the plan-first approach helped you check the work before any code existed.
-- Which parts you needed explained, and why.
-- What the AI could not do. It could not test in Safari or Firefox for you, and it cannot know your real projects.
+- Claude Planning feature allowed me to review and search over everything before starting implementation, which serves as a solid base making the implementation more intact and less prone to changes.
+- multiple css and javascript concepts, such as translateY and @ketframe use.
 
 ## 6. Learning outcomes
 
-**TODO (Abdulaziz):** what you learned, in your own words.
 
-Concepts covered in this assignment:
 
-- `transform: translateY()` and `@keyframes` (both explained in C02)
+- `transform: translateY()` and `@keyframes` 
 - `fetch` with `async/await`, and loading/error/empty states
 - why `textContent` is safer than `innerHTML` for API data
 - `IntersectionObserver`
@@ -97,4 +83,4 @@ The AI Evidence ZIP `202372090-AbdulazizAlkhatib-assignment2-ai-evidence.zip` is
 
 **Name:** Abdulaziz Alkhatib
 **ID:** 202372090
-**Date:** _TODO: sign and date before submitting_
+**Date:** 25/10/2026
