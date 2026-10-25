@@ -43,18 +43,45 @@
 
     <section id="projects" class="section">
       <h2>Projects</h2>
+
+      <div class="project-controls">
+        <label for="project-search">Search projects</label>
+        <input type="search" id="project-search" placeholder="Type a name or technology...">
+        <div class="filters" role="group" aria-label="Filter projects by category">
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-btn" data-filter="web" aria-pressed="false">Web</button>
+          <button type="button" class="filter-btn" data-filter="design" aria-pressed="false">Design</button>
+          <button type="button" class="filter-btn" data-filter="tools" aria-pressed="false">Tools</button>
+        </div>
+      </div>
+
       <div class="projects">
-        <article class="card">
-          <img src="assets/images/project1.svg" alt="Placeholder for Project One">
+        <article class="card" data-category="web">
+          <img src="assets/images/project1.svg" alt="Placeholder for Project One" width="600" height="300" loading="lazy">
+          <span class="tag">Web</span>
           <h3>Project One</h3>
           <p>A short description of my first project, built with HTML, CSS and JavaScript.</p>
         </article>
-        <article class="card">
-          <img src="assets/images/project2.svg" alt="Placeholder for Project Two">
+        <article class="card" data-category="design">
+          <img src="assets/images/project2.svg" alt="Placeholder for Project Two" width="600" height="300" loading="lazy">
+          <span class="tag">Design</span>
           <h3>Project Two</h3>
           <p>A short description of my second project, focused on responsive design.</p>
         </article>
+        <article class="card" data-category="tools">
+          <img src="assets/images/project3.svg" alt="Placeholder for Project Three" width="600" height="300" loading="lazy">
+          <span class="tag">Tools</span>
+          <h3>Project Three</h3>
+          <p>A short description of a small tool or script, for example one written in Python.</p>
+        </article>
+        <article class="card" data-category="web">
+          <img src="assets/images/project4.svg" alt="Placeholder for Project Four" width="600" height="300" loading="lazy">
+          <span class="tag">Web</span>
+          <h3>Project Four</h3>
+          <p>A short description of a web app that uses JavaScript and a public API.</p>
+        </article>
       </div>
+      <p id="projects-empty" class="empty" hidden>No projects found. Try another word or click "All".</p>
     </section>
 
     <section id="contact" class="section">

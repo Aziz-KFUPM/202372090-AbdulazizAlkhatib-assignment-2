@@ -4,6 +4,7 @@
   --text: #1f2933;
   --muted: #52606d;
   --accent: #2563eb;
+  --on-accent: #ffffff;
   --card: #f1f5f9;
   --border: #cbd5e1;
 }
@@ -14,6 +15,7 @@
   --text: #e2e8f0;
   --muted: #94a3b8;
   --accent: #60a5fa;
+  --on-accent: #0f172a;
   --card: #1e293b;
   --border: #334155;
 }
@@ -84,7 +86,7 @@ a {
 
 button {
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -139,12 +141,70 @@ main {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1rem;
+  animation: fade-in 0.3s ease;
 }
 
 .card img {
   width: 100%;
   height: auto;
   border-radius: 6px;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.1rem 0.6rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+/* Project search and filter buttons */
+.project-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-controls input {
+  max-width: 400px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.filter-btn[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 2rem 0;
+}
+
+/* Used by .card: replays each time a filter shows a hidden card again */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Contact form */
