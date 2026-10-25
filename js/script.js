@@ -65,7 +65,7 @@ function updateProjects() {
     }
   });
 
-  projectsEmpty.hidden = visibleCount > 0;
+  projectsEmpty.hidden = visibleCount > 0; 
 }
 
 filterButtons.forEach(function (button) {
@@ -86,7 +86,7 @@ const reposList = document.getElementById("repos-list");
 const reposRetry = document.getElementById("repos-retry");
 const reposUrl = "https://api.github.com/users/Aziz-KFUPM/repos?sort=updated&per_page=6";
 
-function showReposMessage(text, type) {
+function showReposMessage(text, type) { // this function is used to show a message
   reposStatus.textContent = text;
   reposStatus.className = type;
 }

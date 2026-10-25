@@ -2,7 +2,6 @@
 
 A personal portfolio website built with plain HTML, CSS and JavaScript, with no frameworks, libraries or build tools. Assignment 2 builds on [Assignment 1](https://github.com/Aziz-KFUPM/202372090-Abdulaziz-assignment1) by adding interactive features, live data from the GitHub API, animations and clear feedback messages.
 
-**Live demo:** _not deployed yet._ See [Deploying to GitHub Pages](#deploying-to-github-pages-optional).
 
 ## Features
 
