@@ -133,18 +133,59 @@ loadRepos();
 const form = document.getElementById("contact-form");
 const formStatus = document.getElementById("form-status");
 
+// Return the error message for one field, or "" if its value is fine
+function getError(field) {
+  const value = field.value.trim();
+  if (field.name === "name" && value.length < 2) {
+    return "Please enter your name (at least 2 characters).";
+  }
+  if (field.name === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+    return "Please enter a valid email, like name@example.com.";
+  }
+  if (field.name === "message" && value.length < 10) {
+    return "Please write a message of at least 10 characters.";
+  }
+  return "";
+}
+
+// Show the message under the field (or clear it) and mark the field for screen readers
+function showError(field, message) {
+  document.getElementById(field.id + "-error").textContent = message;
+  field.setAttribute("aria-invalid", message ? "true" : "false");
+}
+
+function showFormStatus(text, type) {
+  formStatus.textContent = text;
+  formStatus.className = "";
+  void formStatus.offsetWidth; // forces a reflow so the slide-in animation plays again
+  formStatus.className = type;
+}
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  const name = form.elements.name.value.trim();
-  const email = form.elements.email.value.trim();
-  const message = form.elements.message.value.trim();
+  let firstInvalid = null;
 
-  if (!name || !email || !message) {
-    formStatus.textContent = "Please fill in all fields.";
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    formStatus.textContent = "Please enter a valid email address.";
-  } else {
-    formStatus.textContent = "Thanks, " + name + "! Your message was received.";
-    form.reset();
+  [form.elements.name, form.elements.email, form.elements.message].forEach(function (field) {
+    const message = getError(field);
+    showError(field, message);
+    if (message && !firstInvalid) {
+      firstInvalid = field;
+    }
+  });
+
+  if (firstInvalid) {
+    showFormStatus("Please fix the highlighted fields and try again.", "error");
+    firstInvalid.focus();
+    return;
+  }
+
+  showFormStatus("Thanks, " + form.elements.name.value.trim() + "! Your message was received.", "success");
+  form.reset();
+});
+
+// While typing, update the error of a field that is already marked invalid
+form.addEventListener("input", function (event) {
+  if (event.target.getAttribute("aria-invalid") === "true") {
+    showError(event.target, getError(event.target));
   }
 });
